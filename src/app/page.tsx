@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { Mail, ArrowRight } from 'lucide-react';
 
 import './landing.css'; 
 
@@ -80,23 +79,6 @@ export default function HomePage() {
                 <p className="text-lg md:text-xl text-muted-foreground my-8 max-w-xl mx-auto lg:mx-0">
                     Identifiez et investissez dans les talents de l'esport : lorsque votre talent(s) est performant, vous gagnez.
                 </p>
-                <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto lg:mx-0">
-                    <div className="relative flex-grow">
-                        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                        <input
-                            type="email"
-                            placeholder="Adresse Email"
-                            className="w-full pl-10 pr-4 py-3 bg-muted/20 border border-border rounded-md focus:ring-2 focus:ring-primary focus:outline-none placeholder:text-muted-foreground text-foreground"
-                        />
-                    </div>
-                    <button
-                        type="submit"
-                        className="flex items-center justify-center gap-2 px-6 py-3 bg-transparent border border-border rounded-md font-semibold hover:bg-muted/40 transition-colors text-foreground"
-                    >
-                        COMMENCER
-                        <ArrowRight className="h-5 w-5" />
-                    </button>
-                </form>
             </div>
 
             {/* Colonne de droite: Carte 3D */}

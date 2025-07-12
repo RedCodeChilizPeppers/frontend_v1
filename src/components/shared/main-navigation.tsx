@@ -33,7 +33,6 @@ const Logo = () => (
     <a href="/" className="flex items-center gap-2 text-xl font-bold">
         {/* Remplacez ce SVG par votre logo */}
         <Image width={100} height={50} src={cgt_white_goat} alt=""/>
-        <span className="text-foreground">CGT</span>
     </a>
 );
 const Header = (props: { pages: PageType[], pathname: string }) => {
