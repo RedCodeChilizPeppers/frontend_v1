@@ -35,7 +35,7 @@ const FloatingCard = () => (
 export default function HomePage() {
   return (
     <>
-
+    
         {/* Arrière-plan */}
         <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-[url('https://placehold.co/1920x1080/111117/111117?text=')] bg-cover bg-bottom"></div>

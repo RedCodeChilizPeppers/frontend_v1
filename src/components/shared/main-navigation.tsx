@@ -39,7 +39,7 @@ const Logo = () => (
 const Header = (props: { pages: PageType[], pathname: string }) => {
     return (
         
-        <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
+        <header className="flex z-40 h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20 border-b border-white/10">
                     <div className="flex items-center gap-4">
