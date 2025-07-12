@@ -49,7 +49,7 @@ const Header = (props: { pages: PageType[], pathname: string }) => {
                         </span>
                     </div>
                     <nav className="hidden md:flex items-center gap-8">
-                        <a href="/marche" className="text-sm text-gray-400 hover:text-white transition-colors">Marché</a>
+                        <a href="/list-talent" className="text-sm text-gray-400 hover:text-white transition-colors">Marché</a>
                         <a href="/launchpad" className="text-sm text-gray-400 hover:text-white transition-colors">Launchpad</a>
                         <a href="/how-it-works" className="text-sm text-gray-400 hover:text-white transition-colors">Comment ça fonctionne ?</a>
                         <a href="/learn-more" className="text-sm text-gray-400 hover:text-white transition-colors">En savoir plus</a>
