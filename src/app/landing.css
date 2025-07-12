@@ -1,0 +1,76 @@
+@keyframes cardAnim {
+  0% {
+    transform: rotateX(35deg) rotateY(-15deg) rotateZ(10deg) translateY(0) translateZ(0);
+  }
+  100% {
+    transform: rotateX(35deg) rotateY(-15deg) rotateZ(10deg) translateY(0) translateZ(40px);
+  }
+}
+
+@keyframes shadowAnim {
+  0% {
+    filter: blur(5px);
+  }
+  100% {
+    filter: blur(20px);
+  }
+}
+
+@keyframes glowAnim {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 200%;
+  }
+}
+
+@keyframes chartBar {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+.card3d {
+  transform: rotateX(35deg) rotateY(-15deg) rotateZ(10deg);
+  transform-style: preserve-3d;
+  animation: cardAnim 1.4s linear infinite alternate;
+}
+
+.card3d:before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: block;
+  background-color: rgba(17, 17, 23, .9);
+  filter: blur(4px);
+  transform: translateZ(-10px) translateY(50px) translateX(20px);
+  animation: shadowAnim 1.4s linear infinite alternate;
+}
+
+.card3d:after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  background-image: linear-gradient(100deg, rgba(148,151,207,0) 0%, rgba(148,151,207,0) 50%, rgb(148 151 207) 60%, rgba(148,151,207,0) 70%, rgba(148,151,207,0) 100%);
+  background-size: 200%;
+  background-repeat: repeat-x;
+  filter: blur(10px);
+  animation: glowAnim 3s linear infinite;
+  mix-blend-mode: color-dodge;
+}
+
+.chartBar span {
+  transform-origin: bottom;
+  animation: chartBar 2s ease-out infinite alternate;
+}
