@@ -32,9 +32,9 @@ const FloatingCard = () => {
     return (
         <div className="card3d relative inline-block bg-gradient-to-br from-[#0d0d11] via-[#111117] to-[#2f2f7a] rounded-lg bg-[200%] bg-center">
             {/* Image principale de la carte */}
-            <div className="relative w-[25vw] h-[60vh] min-w-[250px] min-h-[300px] max-w-[350px] max-h-[500px] rounded-t-lg overflow-hidden grayscale mix-blend-lighten">
+            <div className="relative w-[25vw] h-[60vh] min-w-[250px] min-h-[300px] max-w-[350px] max-h-[500px] rounded-t-lg overflow-hidden mix-blend-lighten">
                 {/* Superposition de dégradé sur l'image */}
-                <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#111117] via-[#111117]/80 to-transparent"></div>
+                <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#111117] via-[#111117]/40 to-transparent"></div>
                 
                 {/* Diaporama d'images */}
                 {images.map((src, index) => (
