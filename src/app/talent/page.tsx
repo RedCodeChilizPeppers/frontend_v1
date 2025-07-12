@@ -53,7 +53,7 @@ const stats = [
 
 const rewards = [
     { title: 'Tapis de souris dédicacé', price: '45 WCHZ', remaining: 19, isDone: false, icon: Gift },
-    { title: 'Maillot dédicacé', price: '60 WCHZ', remaining: 12, isDone: true, icon: Shirt },
+    { title: 'Maillot dédicacé', price: '60 WCHZ', remaining: 8, isDone: false, icon: Shirt },
     { title: 'Invitation privée', price: '150 WCHZ', remaining: 4, isDone: false, icon: Gift },
 ];
 
@@ -453,9 +453,15 @@ export default function TalentPage() {
                                                 </p>
                                             </div>
                                         </div>
-                                        <button disabled={reward.isDone} className="bg-primary text-primary-foreground font-semibold px-4 py-2 rounded-md hover:bg-primary/90 transition-colors disabled:bg-muted/40 disabled:text-muted-foreground disabled:cursor-not-allowed">
-                                            {reward.isDone ? 'Obtenu' : reward.price}
-                                        </button>
+                                        {isConnected ? (
+                                            <button disabled={reward.isDone} className="bg-primary text-primary-foreground font-semibold px-4 py-2 rounded-md hover:bg-primary/90 transition-colors disabled:bg-muted/40 disabled:text-muted-foreground disabled:cursor-not-allowed">
+                                                {reward.isDone ? 'Obtenu' : reward.price}
+                                            </button>
+                                        ) : (
+                                            <button disabled className="bg-muted/40 text-muted-foreground font-semibold px-4 py-2 rounded-md cursor-not-allowed text-sm">
+                                                Connect wallet to buy
+                                            </button>
+                                        )}
                                     </div>
                                 ))}
                             </div>
