@@ -4,8 +4,8 @@ import { Search } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
 
-// --- Données de simulation pour les talents ---
-// Dans une application réelle, ces données viendraient d'une API.
+// --- Simulation data for talents ---
+// In a real application, this data would come from an API.
 const talents = [
     {
         name: 'ScreaM',
@@ -54,11 +54,11 @@ const talents = [
     },
 ];
 
-// Composant principal de la page Marché
-export default function MarchePage() {
+// Main component for the Marketplace page
+export default function MarketplacePage() {
     return (
         <div className="relative w-full min-h-screen text-foreground overflow-hidden">
-            {/* Effet de grille en arrière-plan */}
+            {/* Background grid effect */}
             <div className="absolute inset-0 z-0">
                 <div 
                     className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
@@ -67,13 +67,13 @@ export default function MarchePage() {
 
             <div className="relative z-10 w-full max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h1 className="text-4xl sm:text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">Marché des Talents</h1>
+                    <h1 className="text-4xl sm:text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">Talent Marketplace</h1>
                     <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Découvrez et investissez dans les tokens des meilleurs talents esports.
+                        Discover and invest in the best fan tokens of the ecosystem.
                     </p>
                 </div>
 
-                {/* Section Liste des talents */}
+                {/* Talent list section */}
                 <div className="max-w-4xl mx-auto">
                     <div className="bg-background/50 backdrop-blur-sm rounded-xl border border-border overflow-hidden shadow-lg shadow-primary/10">
                         <div className="p-4 border-b border-border">
@@ -81,7 +81,7 @@ export default function MarchePage() {
                                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                                 <input
                                     type="text"
-                                    placeholder="Rechercher un talent..."
+                                    placeholder="Search talent..."
                                     className="w-full pl-10 pr-4 py-2 bg-muted/40 border border-border rounded-md focus:ring-2 focus:ring-primary focus:outline-none"
                                 />
                             </div>
@@ -91,9 +91,9 @@ export default function MarchePage() {
                                 <thead>
                                     <tr className="border-b border-border/50">
                                         <th className="text-left font-semibold p-4 text-muted-foreground">Talent</th>
-                                        <th className="text-right font-semibold p-4 text-muted-foreground">Prix</th>
+                                        <th className="text-right font-semibold p-4 text-muted-foreground">Price</th>
                                         <th className="text-right font-semibold p-4 text-muted-foreground">24h %</th>
-                                        <th className="text-right font-semibold p-4 text-muted-foreground hidden sm:table-cell">Capitalisation</th>
+                                        <th className="text-right font-semibold p-4 text-muted-foreground hidden sm:table-cell">Market Cap</th>
                                         <th className="text-right font-semibold p-4"></th>
                                     </tr>
                                 </thead>
@@ -117,7 +117,7 @@ export default function MarchePage() {
                                             <td className="p-4 text-right">
                                               <Link href={`/talent`}>
                                                 <button className="bg-primary/20 text-primary font-semibold px-4 py-2 rounded-md hover:bg-primary/30 transition-colors">
-                                                    Voir
+                                                    View
                                                 </button>
                                               </Link>
                                             </td>

@@ -7,8 +7,8 @@ import './landing.css';
 
 // --- Composant de la carte 3D ---
 const FloatingCard = () => {
-    // --- VOS IMAGES ICI ---
-    // Remplacez ces liens par les vôtres.
+    // --- YOUR IMAGES HERE ---
+    // Replace these links with yours.
     const images = [
         'Token-AM.svg',
         'Token-FCB.svg',
@@ -22,20 +22,20 @@ const FloatingCard = () => {
     useEffect(() => {
         const intervalId = setInterval(() => {
             setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
-        }, 3000); // Change d'image toutes les 3 secondes
+        }, 3000); // Change image every 3 seconds
 
-        return () => clearInterval(intervalId); // Nettoyage de l'intervalle
+        return () => clearInterval(intervalId); // Cleanup interval
     }, [images.length]);
 
 
     return (
         <div className="card3d relative inline-block bg-gradient-to-br from-[#0d0d11] via-[#111117] to-[#2f2f7a] rounded-lg bg-[200%] bg-center">
-            {/* Image principale de la carte */}
+            {/* Main card image */}
             <div className="relative w-[25vw] h-[60vh] min-w-[250px] min-h-[300px] max-w-[350px] max-h-[500px] rounded-t-lg overflow-hidden mix-blend-lighten">
-                {/* Superposition de dégradé sur l'image */}
+                {/* Gradient overlay on image */}
                 <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#111117] via-[#111117]/40 to-transparent"></div>
                 
-                {/* Diaporama d'images */}
+                {/* Image slideshow */}
                 {images.map((src, index) => (
                     <img 
                         key={src}
@@ -46,7 +46,7 @@ const FloatingCard = () => {
                     />
                 ))}
             </div>
-            {/* Barres de graphique animées */}
+            {/* Animated chart bars */}
             <div className="chartBar absolute top-[30%] right-[-20%] h-[80px] w-[40%] flex items-end justify-between" style={{transform: 'translateZ(30px)'}}>
                 <span className="inline-block w-[15%] h-[20%] bg-red-500 shadow-[0_0_80px_var(--tw-shadow-color)] shadow-red-500" style={{animationDelay: '0s'}}></span>
                 <span className="inline-block w-[15%] h-[60%] bg-green-400 shadow-[0_0_80px_var(--tw-shadow-color)] shadow-green-400" style={{animationDelay: '0.3s'}}></span>
@@ -59,29 +59,29 @@ const FloatingCard = () => {
 };
 
 
-// --- Composant principal de la page d'accueil ---
+// --- Main homepage component ---
 export default function HomePage() {
   return (
     <>
       <main className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-background text-foreground">
-        {/* Arrière-plan */}
+        {/* Background */}
         <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-muted/20"></div>
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
         </div>
         
         <div className="relative z-10 container mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 px-4 sm:px-6 lg:px-8">
-            {/* Colonne de gauche: Texte et CTA */}
+            {/* Left column: Text and CTA */}
             <div className="lg:w-1/2 text-center lg:text-left">
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-wider uppercase text-foreground" style={{lineHeight: 1.2}}>
-                    Investissez dans l'avenir
+                    Invest in the future
                 </h1>
                 <p className="text-lg md:text-xl text-muted-foreground my-8 max-w-xl mx-auto lg:mx-0">
-                    Identifiez et investissez dans les talents de l'esport : lorsque votre talent(s) est performant, vous gagnez.
+                    Identify and invest in esports talents: when your talent(s) perform, you win.
                 </p>
             </div>
 
-            {/* Colonne de droite: Carte 3D */}
+            {/* Right column: 3D Card */}
             <div className="lg:w-1/2 flex justify-center items-center" style={{ perspective: '600px' }}>
                 <FloatingCard />
             </div>

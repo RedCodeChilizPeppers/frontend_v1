@@ -4,36 +4,36 @@
 import React from 'react';
 import { Rocket, Mail, ArrowDown } from 'lucide-react';
 
-// --- Données de simulation pour les projets ---
-// Dans une application réelle, ces données viendraient d'une API.
+// --- Simulation data for projects ---
+// In a real application, this data would come from an API.
 const launchpadProjects = [
     {
-        name: "Votre projet esport",
-        description: "Bientôt, vous pourrez faire connaître et financer vos projets esportifs directement sur notre plateforme.",
-        imageUrl: "https://placehold.co/600x400/111827/7c3aed?text=Projet+Esport",
+        name: "Your esports project",
+        description: "Soon, you'll be able to showcase and fund your esports projects directly on our platform.",
+        imageUrl: "https://placehold.co/600x400/111827/7c3aed?text=Esports+Project",
         raised: 87.9,
         endDate: 28,
     },
     {
-        name: "Vous avez un projet ?",
-        description: "Nous sommes à l'écoute des entrepreneurs et créateurs de contenu. Dites-nous en plus sur votre vision.",
+        name: "Have a project?",
+        description: "We're listening to entrepreneurs and content creators. Tell us more about your vision.",
         imageUrl: "https://placehold.co/600x400/111827/ffffff?text=Contact",
         action: {
-            label: "launchpad@lootin.gg",
-            href: "mailto:launchpad@lootin.gg",
+            label: "launchpad@chilizgottalent.com",
+            href: "mailto:launchpad@chilizgottalent.com",
             icon: Mail
         }
     },
     {
-        name: "Tournoi 'Genesis'",
-        description: "Soutenez l'organisation de notre premier tournoi communautaire sur Valorant, avec des récompenses exclusives pour les investisseurs.",
-        imageUrl: "https://placehold.co/600x400/111827/00ffe7?text=Tournoi",
+        name: "'Genesis' Tournament",
+        description: "Support the organization of our first community tournament on Valorant, with exclusive rewards for investors.",
+        imageUrl: "https://placehold.co/600x400/111827/00ffe7?text=Tournament",
         raised: 45.2,
         endDate: 54,
     },
 ];
 
-// --- Composants ---
+// --- Components ---
 
 const ProjectCard = ({ project }: { project: typeof launchpadProjects[0] }) => (
     <div className="group relative bg-background/50 backdrop-blur-sm rounded-xl border border-border overflow-hidden shadow-lg shadow-primary/5 transition-all duration-300 hover:border-primary/50 hover:shadow-primary/20">
@@ -50,8 +50,8 @@ const ProjectCard = ({ project }: { project: typeof launchpadProjects[0] }) => (
             {project.raised && (
                 <div className="mt-4">
                     <div className="flex justify-between items-center text-sm text-muted-foreground mb-2">
-                        <span>{project.raised}% levés</span>
-                        <span>{project.endDate} jours restants</span>
+                        <span>{project.raised}% raised</span>
+                        <span>{project.endDate} days left</span>
                     </div>
                     <div className="w-full bg-muted/40 rounded-full h-2.5">
                         <div 
@@ -79,7 +79,7 @@ const ProjectCard = ({ project }: { project: typeof launchpadProjects[0] }) => (
 export default function LaunchpadPage() {
     return (
         <>
-            {/* Section Hero */}
+            {/* Hero Section */}
             <section className="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
                 <div 
                     className="absolute inset-0 bg-cover bg-center z-0"
@@ -90,25 +90,25 @@ export default function LaunchpadPage() {
 
                 <div className="relative z-30 px-4">
                     <h1 className="text-5xl md:text-7xl font-bold tracking-wider uppercase" style={{lineHeight: 1.2}}>
-                        Investissez dans les projets qui façonneront demain
+                        Invest in projects that will shape tomorrow
                     </h1>
                     <p className="text-lg md:text-xl text-gray-400 my-8 max-w-2xl mx-auto">
-                        Définissez le futur de l'esport en soutenant les projets les plus prometteurs, des équipes aux plateformes innovantes.
+                        Define the future of esports by supporting the most promising projects, from teams to innovative platforms.
                     </p>
                     <a href="#projects" className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-primary text-primary-foreground font-semibold rounded-md hover:bg-primary/90 transition-colors">
-                        Découvrir les projets
+                        Discover Projects
                         <ArrowDown className="h-5 w-5" />
                     </a>
                 </div>
             </section>
 
-            {/* Section des projets */}
+            {/* Projects section */}
             <section id="projects" className="relative py-20 bg-[#111117]">
                  <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl sm:text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">Créer de nouvelles opportunités</h2>
+                        <h2 className="text-4xl sm:text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">Creating New Opportunities</h2>
                         <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-                            Nous mettons toute notre énergie pour voir l'esport grandir. Soutenez les créateurs, les équipes et les innovateurs qui construisent la prochaine génération de l'esport.
+                            We put all our energy into seeing esports grow. Support creators, teams, and innovators who are building the next generation of esports.
                         </p>
                     </div>
 

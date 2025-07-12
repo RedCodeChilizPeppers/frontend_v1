@@ -48,10 +48,10 @@ const Header = (props: { pages: PageType[], pathname: string }) => {
                         </span>
                     </div>
                     <nav className="hidden md:flex items-center gap-8">
-                        <a href="/list-talent" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Marché</a>
+                        <a href="/list-talent" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Marketplace</a>
                         <a href="/launchpad" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Launchpad</a>
-                        <a href="/how-it-works" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Comment ça fonctionne ?</a>
-                        <a href="/learn-more" className="text-sm text-muted-foreground hover:text-foreground transition-colors">En savoir plus</a>
+                        <a href="/how-it-works" className="text-sm text-muted-foreground hover:text-foreground transition-colors">How It Works</a>
+                        <a href="/learn-more" className="text-sm text-muted-foreground hover:text-foreground transition-colors">About</a>
                     </nav>
                 </div>
             </div>
