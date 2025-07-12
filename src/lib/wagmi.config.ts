@@ -35,16 +35,16 @@ const chilizSpicy = defineChain({
 });
 
 export const config = createConfig(
-  getDefaultConfig({
-    appDescription: 'The Ballot Project',
+  getDefaultConfig({  
+    appDescription: 'Chiliz Got Talent',
     // appIcon: "",
-    appName: 'The Ballot Project',
+    appName: 'Chiliz Got Talent',
     // appUrl: "",
     chains: [hardhat, chilizSpicy],
     connectors: [
       metaMask({
         dappMetadata: {
-          name: 'The Ballot Project',
+          name: 'Chiliz Got Talent',
         },
       }),
       coinbaseWallet(),
