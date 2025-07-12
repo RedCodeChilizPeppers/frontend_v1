@@ -21,7 +21,8 @@ import { ConnectKitButton } from 'connectkit';
 import { useContext } from 'react';
 import { DataContext } from '@/contexts/data-provider';
 import { Skeleton } from '@/components/ui/skeleton';
-
+import  cgt_white_goat  from '../../../public/cgt_white_goat.svg';
+import Image from 'next/image';
 type PageType = {
     count: number | undefined | null;
     icon: React.ForwardRefExoticComponent<Omit<LucideProps, 'ref'>>;
@@ -31,9 +32,7 @@ type PageType = {
 const Logo = () => (
     <a href="/" className="flex items-center gap-2 text-xl font-bold">
         {/* Remplacez ce SVG par votre logo */}
-        <svg width="30" height="30" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 80L50 20L80 80L50 60L20 80Z" stroke="white" strokeWidth="8" strokeLinejoin="round" strokeLinecap="round"/>
-        </svg>
+        <Image width={100} height={50} src={cgt_white_goat} alt=""/>
         <span className="text-white">CGT</span>
     </a>
 );
@@ -46,7 +45,7 @@ const Header = (props: { pages: PageType[], pathname: string }) => {
                     <div className="flex items-center gap-4">
                         <Logo />
                         <span className="bg-purple-500/20 text-purple-400 text-xs font-bold px-2 py-1 rounded-md">
-                            BETA
+                            HACKATHON
                         </span>
                     </div>
                     <nav className="hidden md:flex items-center gap-8">
