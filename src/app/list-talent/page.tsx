@@ -1,6 +1,7 @@
 'use client';
 
 import { ArrowUpDown, ChevronDown, Search } from 'lucide-react';
+import Link from 'next/link';
 import React from 'react';
 
 // --- Données de simulation pour les talents ---
@@ -173,9 +174,11 @@ export default function MarchePage() {
                                                 </td>
                                                 <td className="text-right font-mono p-4 hidden sm:table-cell">${talent.marketCap}M</td>
                                                 <td className="p-4 text-right">
+                                                  <Link href={`/talent`}>
                                                     <button className="bg-primary/20 text-primary font-semibold px-4 py-2 rounded-md hover:bg-primary/30 transition-colors">
                                                         Échanger
                                                     </button>
+                                                  </Link>
                                                 </td>
                                             </tr>
                                         ))}
