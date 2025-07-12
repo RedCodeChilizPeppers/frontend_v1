@@ -73,7 +73,7 @@ const Header = (props: { pages: PageType[], pathname: string }) => {
                                     className="flex items-center gap-2 text-lg font-semibold"
                                 >
                                     <Landmark className="h-6 w-6" />
-                                    <span>The Ballot Project</span>
+                                    <span>Chiliz Got Talent</span>
                                 </Link>
                                 {props.pages.map((page, index) => (
                                     <Link

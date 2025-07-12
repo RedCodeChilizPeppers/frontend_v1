@@ -15,8 +15,8 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: 'The Ballot Project',
-  description: '',
+  title: 'Chiliz Got Talent',
+  description: 'Chiliz Got Talent',
 };
 
 export default function RootLayout({

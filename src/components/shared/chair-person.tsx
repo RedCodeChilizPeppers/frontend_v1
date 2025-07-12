@@ -25,7 +25,7 @@ export function ChairPerson() {
           Chair person
         </CardTitle>
         <CardDescription>
-          The address that owns The Ballot Project.
+          The address that owns Chiliz Got Talent.
         </CardDescription>
       </CardHeader>
       <CardContent className="pt-6">
