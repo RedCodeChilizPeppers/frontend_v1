@@ -33,7 +33,7 @@ const Logo = () => (
     <a href="/" className="flex items-center gap-2 text-xl font-bold">
         {/* Remplacez ce SVG par votre logo */}
         <Image width={100} height={50} src={cgt_white_goat} alt=""/>
-        <span className="text-white">CGT</span>
+        <span className="text-foreground">CGT</span>
     </a>
 );
 const Header = (props: { pages: PageType[], pathname: string }) => {
@@ -41,18 +41,18 @@ const Header = (props: { pages: PageType[], pathname: string }) => {
         
         <header className="flex z-40 h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-between h-20 border-b border-white/10">
+                <div className="flex items-center justify-between h-20 border-b border-border">
                     <div className="flex items-center gap-4">
                         <Logo />
-                        <span className="bg-purple-500/20 text-purple-400 text-xs font-bold px-2 py-1 rounded-md">
+                        <span className="bg-color-purple/20 text-color-purple text-xs font-bold px-2 py-1 rounded-md">
                             HACKATHON
                         </span>
                     </div>
                     <nav className="hidden md:flex items-center gap-8">
-                        <a href="/list-talent" className="text-sm text-gray-400 hover:text-white transition-colors">Marché</a>
-                        <a href="/launchpad" className="text-sm text-gray-400 hover:text-white transition-colors">Launchpad</a>
-                        <a href="/how-it-works" className="text-sm text-gray-400 hover:text-white transition-colors">Comment ça fonctionne ?</a>
-                        <a href="/learn-more" className="text-sm text-gray-400 hover:text-white transition-colors">En savoir plus</a>
+                        <a href="/list-talent" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Marché</a>
+                        <a href="/launchpad" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Launchpad</a>
+                        <a href="/how-it-works" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Comment ça fonctionne ?</a>
+                        <a href="/learn-more" className="text-sm text-muted-foreground hover:text-foreground transition-colors">En savoir plus</a>
                     </nav>
                 </div>
             </div>
@@ -98,8 +98,28 @@ const Header = (props: { pages: PageType[], pathname: string }) => {
                         </SheetContent>
                     </Sheet>
                     <div className="w-full flex-1"></div>
-                    <ThemeToggle />
-                    <ConnectKitButton showAvatar={true} showBalance={true} />
+                    <div className="dark:navbar-pink">
+                        <ThemeToggle />
+                    </div>
+                    <div className="dark:navbar-pink">
+                        <ConnectKitButton showAvatar={true} showBalance={true} customTheme={{
+    '--ck-connectbutton-border-radius': '6px',
+    '--ck-connectbutton-background': 'rgb(var(--button-pink))',
+    '--ck-connectbutton-color': 'white',
+    '--ck-connectbutton-hover-background': 'rgb(var(--button-pink-hover))',
+    '--ck-connectbutton-active-background': 'rgb(var(--button-pink-hover))',
+    '--ck-connectbutton-balance-background': 'hsl(var(--muted))',
+    '--ck-connectbutton-balance-color': 'hsl(var(--accent-foreground))',
+    '--ck-connectbutton-balance-hover-background': 'hsl(var(--muted))',
+    '--ck-connectbutton-balance-active-background': 'hsl(var(--background))',
+    '--ck-connectbutton-box-shadow': '0 0 0 1px rgb(var(--button-pink-border))',
+    '--ck-connectbutton-balance-box-shadow': '0 0 0 1px hsl(var(--input))',
+    '--ck-connectbutton-hover-box-shadow': '0 0 0 1px rgb(var(--button-pink-border))',
+    '--ck-connectbutton-balance-hover-box-shadow': '0 0 0 1px hsl(var(--input))',
+    '--ck-connectbutton-active-box-shadow': '0 0 0 1px rgb(var(--button-pink-border))',
+    '--ck-connectbutton-balance-active-box-shadow': '0 0 0 1px hsl(var(--input))',
+  }}/>
+                    </div>
                 </header>
 
     );

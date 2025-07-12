@@ -4,48 +4,75 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 224 71.4% 4.1%;
-    --card: 0 0% 100%;
-    --card-foreground: 224 71.4% 4.1%;
+    /* Custom brand colors */
+    --main-red: #dd1754;
+    --light-red: #f82d6d;
+    --main-white: #D4DCFF;
+    --pure-white: #FFF;
+    --main-dark-color: #111117;
+    --color-white: #D4DCFF;
+    --color-purple: #7d83ff;
+    --color-blue: #1e85fc;
+    --color-green: #00ffe7;
+    --color-gold: #ead2a7;
+    --color-red: #dd1754;
+    --color-dark-nuance: rgba(28, 28, 43, 0.2);
+    --color-dark-nuance-lighter: rgba(28, 28, 43, 1);
+    --main-font-size: 16px;
+    --l-wrap: 90%;
+    --m-wrap: 75%;
+    --s-wrap: 70%;
+    --xs-wrap: 1024px;
+
+    /* Button colors for consistency */
+    --button-pink: 219 39 119; /* pink-600 */
+    --button-pink-hover: 190 24 93; /* pink-700 */
+    --button-pink-border: 236 72 153; /* pink-500 */
+
+    /* Light theme mappings - High contrast for readability */
+    --background: 0 0% 100%; /* pure white background for maximum contrast */
+    --foreground: 0 0% 0%; /* pure black text for maximum readability */
+    --card: 0 0% 100%; /* pure white cards */
+    --card-foreground: 0 0% 0%; /* pure black text on cards */
     --popover: 0 0% 100%;
-    --popover-foreground: 224 71.4% 4.1%;
-    --primary: 262.1 83.3% 57.8%;
-    --primary-foreground: 210 20% 98%;
-    --secondary: 220 14.3% 95.9%;
-    --secondary-foreground: 220.9 39.3% 11%;
-    --muted: 220 14.3% 95.9%;
-    --muted-foreground: 220 8.9% 46.1%;
-    --accent: 220 14.3% 95.9%;
-    --accent-foreground: 220.9 39.3% 11%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 20% 98%;
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 262.1 83.3% 57.8%;
+    --popover-foreground: 0 0% 0%; /* pure black text on popovers */
+    --primary: 342 87% 47%; /* main-red #dd1754 */
+    --primary-foreground: 0 0% 100%; /* white text on red buttons */
+    --secondary: 235 43% 92%; /* lighter main-white for subtle backgrounds */
+    --secondary-foreground: 0 0% 0%; /* black text on secondary elements */
+    --muted: 235 43% 94%; /* very light main-white for muted areas */
+    --muted-foreground: 0 0% 20%; /* dark gray for muted text - still readable */
+    --accent: 235 100% 50%; /* color-blue #1e85fc */
+    --accent-foreground: 0 0% 100%; /* white text on blue accent */
+    --destructive: 342 87% 47%; /* main-red */
+    --destructive-foreground: 0 0% 100%; /* white text on red destructive */
+    --border: 235 43% 80%; /* visible border using main-white tint */
+    --input: 235 43% 88%; /* light input backgrounds with main-white tint */
+    --ring: 240 91% 74%; /* color-purple for focus ring */
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 224 71.4% 4.1%;
-    --foreground: 210 20% 98%;
-    --card: 224 71.4% 4.1%;
-    --card-foreground: 210 20% 98%;
-    --popover: 224 71.4% 4.1%;
-    --popover-foreground: 210 20% 98%;
-    --primary: 263.4 70% 50.4%;
-    --primary-foreground: 210 20% 98%;
-    --secondary: 215 27.9% 16.9%;
-    --secondary-foreground: 210 20% 98%;
-    --muted: 215 27.9% 16.9%;
-    --muted-foreground: 217.9 10.6% 64.9%;
-    --accent: 215 27.9% 16.9%;
-    --accent-foreground: 210 20% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 20% 98%;
-    --border: 215 27.9% 16.9%;
-    --input: 215 27.9% 16.9%;
-    --ring: 263.4 70% 50.4%;
+    /* Dark theme using custom color scheme */
+    --background: 225 15% 7%; /* main-dark-color #111117 */
+    --foreground: 0 0% 100%; /* pure white text for visibility */
+    --card: 220 18% 10%; /* darker variant of main-dark-color */
+    --card-foreground: 0 0% 100%; /* pure white text on dark cards */
+    --popover: 220 18% 10%;
+    --popover-foreground: 0 0% 100%; /* pure white text on dark popovers */
+    --primary: 342 87% 47%; /* main-red #dd1754 */
+    --primary-foreground: 0 0% 100%; /* pure white text on red buttons */
+    --secondary: 240 91% 74%; /* color-purple #7d83ff */
+    --secondary-foreground: 225 15% 7%; /* main-dark-color text on purple */
+    --muted: 220 20% 15%; /* darker nuance */
+    --muted-foreground: 0 0% 70%; /* light gray for muted text */
+    --accent: 235 100% 50%; /* color-blue #1e85fc */
+    --accent-foreground: 0 0% 100%; /* pure white text on blue accent */
+    --destructive: 351 100% 59%; /* light-red #f82d6d for better visibility */
+    --destructive-foreground: 0 0% 100%; /* pure white text on red destructive */
+    --border: 220 20% 20%; /* subtle border using dark nuance */
+    --input: 220 20% 20%;
+    --ring: 342 87% 47%; /* main-red for focus ring */
   }
 }
 
@@ -55,5 +82,63 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .dark .navbar-pink button {
+    background-color: rgb(var(--button-pink)) !important;
+    border-color: rgb(var(--button-pink-border)) !important;
+    color: white !important;
+  }
+  
+  .dark .navbar-pink button:hover {
+    background-color: rgb(var(--button-pink-hover)) !important;
+  }
+  
+  .dark .navbar-pink [data-theme="light"] {
+    background-color: rgb(var(--button-pink)) !important;
+    border-color: rgb(var(--button-pink-border)) !important;
+    color: white !important;
+  }
+  
+  .dark .navbar-pink [data-theme="light"]:hover {
+    background-color: rgb(var(--button-pink-hover)) !important;
+  }
+
+  /* Target ConnectKit button specifically */
+  .dark .navbar-pink [data-testid] {
+    background-color: rgb(var(--button-pink)) !important;
+    border-color: rgb(var(--button-pink-border)) !important;
+    color: white !important;
+  }
+  
+  .dark .navbar-pink [data-testid]:hover {
+    background-color: rgb(var(--button-pink-hover)) !important;
+  }
+
+  .dark .navbar-pink div[role="button"] {
+    background-color: rgb(var(--button-pink)) !important;
+    border-color: rgb(var(--button-pink-border)) !important;
+    color: white !important;
+  }
+  
+  .dark .navbar-pink div[role="button"]:hover {
+    background-color: rgb(var(--button-pink-hover)) !important;
+  }
+
+  /* More specific ConnectKit targeting */
+  .dark .navbar-pink > div button,
+  .dark .navbar-pink > div > button,
+  .dark .navbar-pink > div > div button {
+    background-color: rgb(var(--button-pink)) !important;
+    border-color: rgb(var(--button-pink-border)) !important;
+    color: white !important;
+  }
+  
+  .dark .navbar-pink > div button:hover,
+  .dark .navbar-pink > div > button:hover,
+  .dark .navbar-pink > div > div button:hover {
+    background-color: rgb(var(--button-pink-hover)) !important;
   }
 }
