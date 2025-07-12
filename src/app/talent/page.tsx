@@ -5,7 +5,7 @@ import { AreaChart, Area, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { Share2, Info, ArrowRight, CheckCircle, Trophy, Gamepad2, Shirt, Gift, Users, TrendingUp, TrendingDown, Wallet } from 'lucide-react';
 import { useAccount } from 'wagmi';
 
-// --- Données de simulation ---
+// --- Simulation data ---
 const talentDetails = {
     name: 'Faker',
     fullName: 'Lee Sang-hyeok "Faker"',
@@ -13,11 +13,11 @@ const talentDetails = {
     change24h: 12.89,
     game: 'League of Legends',
     category: 'Midlaner',
-    contractLength: '3 Ans',
+    contractLength: '3 Years',
     introValue: '150.00 WCHZ',
     totalSupply: '1,000,000',
     imageUrl: 'https://placehold.co/500x500/111827/FFF?text=Faker',
-    description: 'Considéré comme le plus grand joueur de tous les temps sur League of Legends, Faker est une légende vivante. Investir dans son talent, c\'est investir dans une icône de l\'esport mondial.',
+    description: 'Considered the greatest player of all time in League of Legends, Faker is a living legend. Investing in his talent means investing in a global esports icon.',
     socials: {
         twitter: '#',
         twitch: '#',
@@ -27,12 +27,12 @@ const talentDetails = {
 
 const chartDataAll = [
     { name: 'Jan', val: 150 },
-    { name: 'Fev', val: 165 },
+    { name: 'Feb', val: 165 },
     { name: 'Mar', val: 160 },
-    { name: 'Avr', val: 180 },
-    { name: 'Mai', val: 175 },
-    { name: 'Juin', val: 190 },
-    { name: 'Juil', val: 210.05 },
+    { name: 'Apr', val: 180 },
+    { name: 'May', val: 175 },
+    { name: 'Jun', val: 190 },
+    { name: 'Jul', val: 210.05 },
 ];
 
 const chartDataDay = [
@@ -45,19 +45,19 @@ const chartDataDay = [
 ];
 
 const stats = [
-    { label: 'Valeur du Talent', value: '25.6M WCHZ', icon: Trophy },
-    { label: 'FKR en vente', value: '🚨 5,420', icon: Gamepad2 },
-    { label: 'Statut', value: 'Vente Publique', icon: CheckCircle },
+    { label: 'Talent Value', value: '25.6M WCHZ', icon: Trophy },
+    { label: 'FKR for Sale', value: '🚨 5,420', icon: Gamepad2 },
+    { label: 'Status', value: 'Public Sale', icon: CheckCircle },
     { label: 'Participants', value: '1,890', icon: Users },
 ];
 
 const rewards = [
-    { title: 'Tapis de souris dédicacé', price: '45 WCHZ', remaining: 19, isDone: false, icon: Gift },
-    { title: 'Maillot dédicacé', price: '60 WCHZ', remaining: 8, isDone: false, icon: Shirt },
-    { title: 'Invitation privée', price: '150 WCHZ', remaining: 4, isDone: false, icon: Gift },
+    { title: 'Signed mousepad', price: '45 WCHZ', remaining: 19, isDone: false, icon: Gift },
+    { title: 'Signed jersey', price: '60 WCHZ', remaining: 8, isDone: false, icon: Shirt },
+    { title: 'Private invitation', price: '150 WCHZ', remaining: 4, isDone: false, icon: Gift },
 ];
 
-// --- Composants ---
+// --- Components ---
 
 const BuyComponent = ({ currentPrice }: { currentPrice: number }) => {
     const [amount, setAmount] = useState('');
@@ -87,7 +87,7 @@ const BuyComponent = ({ currentPrice }: { currentPrice: number }) => {
     const handleBuy = async () => {
         if (!amount || !tokenAmount) return;
         setIsLoadingTx(true);
-        // Simulation d'une transaction
+        // Transaction simulation
         await new Promise(resolve => setTimeout(resolve, 2000));
         setIsLoadingTx(false);
         // Reset form
@@ -101,13 +101,13 @@ const BuyComponent = ({ currentPrice }: { currentPrice: number }) => {
         <div className="bg-background/50 backdrop-blur-sm rounded-xl border border-border p-6 shadow-lg shadow-primary/10">
             <div className="flex items-center gap-2 mb-4">
                 <TrendingUp className="h-5 w-5 text-green-400" />
-                <h3 className="text-xl font-bold">Acheter</h3>
+                <h3 className="text-xl font-bold">Buy</h3>
             </div>
             
             <div className="space-y-4">
                 <div>
                     <label className="block text-sm font-medium text-muted-foreground mb-2">
-                        Montant en WCHZ
+                        Amount in WCHZ
                     </label>
                     <input
                         type="number"
@@ -124,7 +124,7 @@ const BuyComponent = ({ currentPrice }: { currentPrice: number }) => {
                 
                 <div>
                     <label className="block text-sm font-medium text-muted-foreground mb-2">
-                        Tokens FKR que vous recevrez
+                        FKR tokens you will receive
                     </label>
                     <input
                         type="number"
@@ -138,8 +138,8 @@ const BuyComponent = ({ currentPrice }: { currentPrice: number }) => {
                 {isValidAmount && (
                     <div className="bg-green-400/10 border border-green-400/20 rounded-lg p-3">
                         <div className="text-sm text-green-400">
-                            <p>Prix par token: {currentPrice.toFixed(2)} WCHZ</p>
-                            <p>Frais de transaction: ~0.25 WCHZ</p>
+                            <p>Price per token: {currentPrice.toFixed(2)} WCHZ</p>
+                            <p>Transaction fee: ~0.25 WCHZ</p>
                             <p className="font-semibold">Total: {(Number(amount) + 0.25).toFixed(2)} WCHZ</p>
                         </div>
                     </div>
@@ -150,7 +150,7 @@ const BuyComponent = ({ currentPrice }: { currentPrice: number }) => {
                     disabled={!isValidAmount || isLoadingTx}
                     className="w-full bg-primary text-primary-foreground font-bold py-3 rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                    {isLoadingTx ? 'Transaction en cours...' : 'Confirmer l\'achat'}
+                    {isLoadingTx ? 'Transaction in progress...' : 'Confirm Purchase'}
                 </button>
             </div>
         </div>
@@ -162,8 +162,8 @@ const SellComponent = ({ currentPrice }: { currentPrice: number }) => {
     const [wchzAmount, setWchzAmount] = useState('');
     const [isLoadingTx, setIsLoadingTx] = useState(false);
     
-    // Simulation du solde de l'utilisateur
-    const userBalance = 4.567823; // Tokens FKR détenus
+    // User balance simulation
+    const userBalance = 4.567823; // FKR tokens held
     
     const handleTokenAmountChange = (value: string) => {
         setTokenAmount(value);
@@ -188,7 +188,7 @@ const SellComponent = ({ currentPrice }: { currentPrice: number }) => {
     const handleSell = async () => {
         if (!tokenAmount || !wchzAmount) return;
         setIsLoadingTx(true);
-        // Simulation d'une transaction
+        // Transaction simulation
         await new Promise(resolve => setTimeout(resolve, 2000));
         setIsLoadingTx(false);
         // Reset form
@@ -207,14 +207,14 @@ const SellComponent = ({ currentPrice }: { currentPrice: number }) => {
         <div className="bg-background/50 backdrop-blur-sm rounded-xl border border-border p-6 shadow-lg shadow-primary/10">
             <div className="flex items-center gap-2 mb-4">
                 <TrendingDown className="h-5 w-5 text-red-400" />
-                <h3 className="text-xl font-bold">Vendre</h3>
+                <h3 className="text-xl font-bold">Sell</h3>
             </div>
             
             <div className="space-y-4">
                 <div>
                     <div className="flex justify-between items-center mb-2">
                         <label className="block text-sm font-medium text-muted-foreground">
-                            Tokens FKR à vendre
+                            FKR tokens to sell
                         </label>
                         <button
                             onClick={setMaxAmount}
@@ -239,7 +239,7 @@ const SellComponent = ({ currentPrice }: { currentPrice: number }) => {
                 
                 <div>
                     <label className="block text-sm font-medium text-muted-foreground mb-2">
-                        WCHZ que vous recevrez
+                        WCHZ you will receive
                     </label>
                     <input
                         type="number"
@@ -253,9 +253,9 @@ const SellComponent = ({ currentPrice }: { currentPrice: number }) => {
                 {isValidAmount && (
                     <div className="bg-red-400/10 border border-red-400/20 rounded-lg p-3">
                         <div className="text-sm text-red-400">
-                            <p>Prix par token: {currentPrice.toFixed(2)} WCHZ</p>
-                            <p>Frais de transaction: ~0.25 WCHZ</p>
-                            <p className="font-semibold">Net reçu: {(Number(wchzAmount) - 0.25).toFixed(2)} WCHZ</p>
+                            <p>Price per token: {currentPrice.toFixed(2)} WCHZ</p>
+                            <p>Transaction fee: ~0.25 WCHZ</p>
+                            <p className="font-semibold">Net received: {(Number(wchzAmount) - 0.25).toFixed(2)} WCHZ</p>
                         </div>
                     </div>
                 )}
@@ -265,7 +265,7 @@ const SellComponent = ({ currentPrice }: { currentPrice: number }) => {
                     disabled={!isValidAmount || isLoadingTx}
                     className="w-full bg-red-500 text-white font-bold py-3 rounded-lg hover:bg-red-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                    {isLoadingTx ? 'Transaction en cours...' : 'Confirmer la vente'}
+                    {isLoadingTx ? 'Transaction in progress...' : 'Confirm Sale'}
                 </button>
             </div>
         </div>
@@ -292,7 +292,7 @@ const TalentChart = () => {
         <div className="bg-background/50 backdrop-blur-sm rounded-xl border border-border p-4 shadow-lg shadow-primary/10">
             <div className="flex justify-end mb-4">
                 <div className="flex items-center bg-muted/40 border border-border rounded-md p-1">
-                    {['Jour', 'Semaine', 'Mois', 'Tout'].map((item) => (
+                    {['Day', 'Week', 'Month', 'All'].map((item) => (
                          <button 
                             key={item}
                             onClick={() => setTimeframe(item.toLowerCase())}
@@ -327,30 +327,30 @@ const InfoCard = ({ talent }: { talent: typeof talentDetails }) => (
         <div className="bg-background/50 backdrop-blur-sm rounded-xl border border-border overflow-hidden shadow-lg shadow-primary/10">
             <img src={talent.imageUrl} alt={talent.name} className="w-full h-auto object-cover" />
             <div className="p-6">
-                <h3 className="font-bold text-lg mb-4">Informations</h3>
+                <h3 className="font-bold text-lg mb-4">Information</h3>
                 <ul className="space-y-3 text-sm">
                     <li className="flex justify-between">
-                        <span className="text-muted-foreground">Nom complet</span>
+                        <span className="text-muted-foreground">Full Name</span>
                         <span className="font-medium text-right">{talent.fullName}</span>
                     </li>
                     <li className="flex justify-between">
-                        <span className="text-muted-foreground">Jeu</span>
+                        <span className="text-muted-foreground">Game</span>
                         <span className="font-medium">{talent.game}</span>
                     </li>
                     <li className="flex justify-between">
-                        <span className="text-muted-foreground">Catégorie</span>
+                        <span className="text-muted-foreground">Category</span>
                         <span className="font-medium">{talent.category}</span>
                     </li>
                     <li className="flex justify-between">
-                        <span className="text-muted-foreground">Contrat</span>
+                        <span className="text-muted-foreground">Contract</span>
                         <span className="font-medium">{talent.contractLength}</span>
                     </li>
                     <li className="flex justify-between">
-                        <span className="text-muted-foreground">Valeur Intro.</span>
+                        <span className="text-muted-foreground">Intro Value</span>
                         <span className="font-medium">{talent.introValue}</span>
                     </li>
                     <li className="flex justify-between">
-                        <span className="text-muted-foreground">Offre Totale</span>
+                        <span className="text-muted-foreground">Total Supply</span>
                         <span className="font-medium">{talent.totalSupply}</span>
                     </li>
                 </ul>
@@ -364,19 +364,19 @@ export default function TalentPage() {
 
     return (
         <div className="relative w-full min-h-screen text-foreground overflow-hidden">
-            {/* Effet de grille en arrière-plan */}
+            {/* Background grid effect */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
             </div>
 
             <div className="relative z-10 w-full max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
                 <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
-                    {/* Colonne de gauche : Infos */}
+                    {/* Left column: Info */}
                     <div className="lg:col-span-1">
                         <InfoCard talent={talentDetails} />
                     </div>
 
-                    {/* Colonne de droite : Contenu principal */}
+                    {/* Right column: Main content */}
                     <div className="lg:col-span-2 space-y-8">
                         {/* Header */}
                         <div>
@@ -409,12 +409,12 @@ export default function TalentPage() {
                         ) : (
                             <div className="bg-background/50 backdrop-blur-sm rounded-xl border border-border p-8 text-center shadow-lg shadow-primary/10">
                                 <Wallet className="h-12 w-12 mx-auto text-primary mb-4" />
-                                <h3 className="text-xl font-semibold mb-2">Portefeuille non connecté</h3>
+                                <h3 className="text-xl font-semibold mb-2">Wallet not connected</h3>
                                 <p className="text-muted-foreground mb-4">
-                                    Connectez votre portefeuille pour commencer à échanger des tokens FKR
+                                    Connect your wallet to start trading FKR tokens
                                 </p>
                                 <p className="text-sm text-muted-foreground">
-                                    Utilisez le bouton "Connect Wallet" en haut à droite pour vous connecter
+                                    Use the "Connect Wallet" button at the top right to connect
                                 </p>
                             </div>
                         )}
@@ -432,13 +432,13 @@ export default function TalentPage() {
 
                         {/* Description */}
                         <div>
-                            <h2 className="text-2xl font-bold mb-4">À propos de {talentDetails.name}</h2>
+                            <h2 className="text-2xl font-bold mb-4">About {talentDetails.name}</h2>
                             <p className="text-muted-foreground leading-relaxed">{talentDetails.description}</p>
                         </div>
                         
-                        {/* Récompenses */}
+                        {/* Rewards */}
                         <div>
-                            <h2 className="text-2xl font-bold mb-4">Récompenses exclusives</h2>
+                            <h2 className="text-2xl font-bold mb-4">Exclusive Rewards</h2>
                             <div className="space-y-4">
                                 {rewards.map((reward) => (
                                     <div key={reward.title} className={`bg-background/50 backdrop-blur-sm rounded-xl border p-4 flex items-center justify-between ${reward.isDone ? 'border-green-400/50' : 'border-border'}`}>
@@ -447,21 +447,21 @@ export default function TalentPage() {
                                                 <reward.icon className="h-6 w-6" />
                                             </div>
                                             <div>
-                                                <p className="font-bold">{reward.title}</p>
-                                                <p className="text-sm text-muted-foreground">
-                                                    {reward.isDone ? 'Déjà obtenu' : `🚨 ${reward.remaining} restants`}
-                                                </p>
+                                                <p className="font-semibold">{reward.title}</p>
+                                                <p className="text-sm text-muted-foreground">{reward.remaining} remaining</p>
                                             </div>
                                         </div>
-                                        {isConnected ? (
-                                            <button disabled={reward.isDone} className="bg-primary text-primary-foreground font-semibold px-4 py-2 rounded-md hover:bg-primary/90 transition-colors disabled:bg-muted/40 disabled:text-muted-foreground disabled:cursor-not-allowed">
-                                                {reward.isDone ? 'Obtenu' : reward.price}
-                                            </button>
-                                        ) : (
-                                            <button disabled className="bg-muted/40 text-muted-foreground font-semibold px-4 py-2 rounded-md cursor-not-allowed text-sm">
-                                                Connect wallet to buy
-                                            </button>
-                                        )}
+                                        <div className="text-right">
+                                            {isConnected ? (
+                                                <button className="bg-primary/20 text-primary font-semibold px-4 py-2 rounded-md hover:bg-primary/30 transition-colors">
+                                                    {reward.price}
+                                                </button>
+                                            ) : (
+                                                <button className="bg-muted/40 text-muted-foreground font-semibold px-4 py-2 rounded-md cursor-not-allowed">
+                                                    Connect wallet to buy
+                                                </button>
+                                            )}
+                                        </div>
                                     </div>
                                 ))}
                             </div>
