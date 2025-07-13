@@ -6,10 +6,10 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
+} from '../../components/ui/card';
 import { useContext } from 'react';
-import { DataContext } from '@/contexts/data-provider';
-import { Badge } from '@/components/ui/badge';
+import { DataContext } from '../../contexts/data-provider';
+import { Badge } from '../../components/ui/badge';
 import {
   BookMarked,
   Vote,
@@ -17,13 +17,13 @@ import {
   ScrollText,
   Weight,
 } from 'lucide-react';
-import { Skeleton } from '@/components/ui/skeleton';
+import { Skeleton } from '../../components/ui/skeleton';
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@/components/ui/tooltip';
+} from '../../components/ui/tooltip';
 
 const ADDRESS_0 = '0x0000000000000000000000000000000000000000';
 

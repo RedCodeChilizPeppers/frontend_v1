@@ -17,7 +17,7 @@ const MerchModal = ({ onClose }: { onClose: () => void }) => (
              <h3 className="text-xl font-bold mb-6">Ajouter un nouvel article</h3>
              <form className="space-y-4">
                 <div>
-                    <label className="text-sm font-medium">Nom de l'article</label>
+                    <label className="text-sm font-medium">Nom de l&quot;article</label>
                     <input type="text" className="w-full mt-1 p-2 bg-muted/40 border border-border rounded-md" />
                 </div>
                  <div>
@@ -29,12 +29,12 @@ const MerchModal = ({ onClose }: { onClose: () => void }) => (
                     <input type="number" className="w-full mt-1 p-2 bg-muted/40 border border-border rounded-md" />
                 </div>
                  <div>
-                    <label className="text-sm font-medium">URL de l'image</label>
+                    <label className="text-sm font-medium">URL de l&quot;image</label>
                     <input type="text" className="w-full mt-1 p-2 bg-muted/40 border border-border rounded-md" />
                 </div>
                 <div className="flex justify-end gap-4 pt-4">
                     <button type="button" onClick={onClose} className="py-2 px-4 rounded-md border border-border">Annuler</button>
-                    <button type="submit" className="py-2 px-4 rounded-md bg-primary text-primary-foreground">Ajouter l'article</button>
+                    <button type="submit" className="py-2 px-4 rounded-md bg-primary text-primary-foreground">Ajouter l&quot;article</button>
                 </div>
              </form>
         </div>

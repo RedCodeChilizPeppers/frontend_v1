@@ -1,37 +1,37 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
+import { Button } from '../../components/ui/button';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
-import { ballotContract } from '@/contracts/ballot.contract';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { useContract } from '@/hooks/useContract';
+} from '../../components/ui/card';
+// import { ballotContract } from '../../contracts/ballot.contract';
+import { Input } from '../../components/ui/input';
+import { Label } from '../../components/ui/label';
+// import { useContract } from '../../hooks/useContract';
 import { useContext, useState } from 'react';
 import { LoaderCircle } from 'lucide-react';
-import { DataContext } from '@/contexts/data-provider';
+import { DataContext } from '../../contexts/data-provider';
 
 export function DelegateCard() {
   const [delegateAddress, setDelegateAddress] = useState<string>('');
   const { refetchAccount } = useContext(DataContext);
-  const { isConnected, isPending, writeContract } = useContract(() => {
-    setDelegateAddress('');
-    refetchAccount();
-  });
+  // const { isConnected, isPending, writeContract } = useContract(() => {
+  //   setDelegateAddress('');
+  //   refetchAccount();
+  // });
 
-  function submitDelegate(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    writeContract({
-      ...ballotContract,
-      functionName: 'delegate',
-      args: [delegateAddress as `0x${string}`],
-    });
-  }
+  // function submitDelegate(event: React.FormEvent<HTMLFormElement>) {
+  //   event.preventDefault();
+  //   writeContract({
+  //     ...ballotContract,
+  //     functionName: 'delegate',
+  //     args: [delegateAddress as `0x${string}`],
+  //   });
+  // }
 
   return (
     <Card>
@@ -43,13 +43,13 @@ export function DelegateCard() {
         </CardDescription>
       </CardHeader>
       <CardContent className="pt-6">
-        <form className="flex-row gap-6" onSubmit={submitDelegate}>
+        <form className="flex-row gap-6">
           <div className="grid gap-3">
             <Label htmlFor="delegate_address">Address</Label>
             <div className="flex gap-2">
               <Input
                 className="w-full"
-                disabled={isPending || !isConnected}
+                // disabled={isPending || !isConnected}
                 id="delegate_address"
                 maxLength={42}
                 minLength={42}
@@ -63,14 +63,14 @@ export function DelegateCard() {
               />
               <Button
                 className="min-w-32"
-                disabled={isPending || !isConnected}
+                // disabled={isPending || !isConnected}
                 type="submit"
               >
-                {isPending ? (
+                {/* {isPending ? (
                   <LoaderCircle className="animate-spin" />
-                ) : (
+                ) : ( */}
                   <>Delegate</>
-                )}
+                {/* )} */}
               </Button>
             </div>
           </div>

@@ -1,8 +1,8 @@
 import type { Config } from 'tailwindcss';
-import { fontFamily } from 'tailwindcss/defaultTheme';
+// import { fontFamily } from 'tailwindcss/defaultTheme';
 
 const config = {
-  darkMode: ['class'],
+  darkMode: ['class', '[data-mode="dark"]'],
   content: ['./src/**/*.{ts,tsx}'],
   prefix: '',
   theme: {
@@ -15,7 +15,7 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ['var(--font-sans)', ...fontFamily.sans],
+        sans: ['var(--font-sans)'],
       },
       colors: {
         border: 'hsl(var(--border))',

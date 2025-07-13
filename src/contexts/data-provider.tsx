@@ -1,9 +1,10 @@
 'use client';
 
-import { useData } from '@/hooks/useData';
+// import { useData } from '@/hooks/useData';
 import * as React from 'react';
 import { createContext } from 'react';
 import { Log } from 'viem';
+import { useData } from '../hooks/useData';
 
 export type EventLog = Log & {
   args: Record<string, unknown>;
@@ -60,6 +61,7 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
   const data = useData();
   console.log(data);
   return (
-    <DataContext.Provider value={{ ...data }}>{children}</DataContext.Provider>
+    // <DataContext.Provider value={{ ...data }}>{children}</DataContext.Provider>
+    <>{children}</>
   );
 }

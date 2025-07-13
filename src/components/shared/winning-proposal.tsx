@@ -6,11 +6,11 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
-import { DataContext } from '@/contexts/data-provider';
+} from '../../components/ui/card';
+import { DataContext } from '../../contexts/data-provider';
 import { Trophy } from 'lucide-react';
 import { useContext } from 'react';
-import { Skeleton } from '@/components/ui/skeleton';
+import { Skeleton } from '../../components/ui/skeleton';
 
 export function WinningProposal() {
   const {

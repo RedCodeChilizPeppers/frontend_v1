@@ -1,17 +1,17 @@
 'use client';
 
 import { useContext } from 'react';
-import { DataContext } from '@/contexts/data-provider';
+import { DataContext } from '../../contexts/data-provider';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
+} from '../../components/ui/card';
 import { BookUser } from 'lucide-react';
-import { Skeleton } from '@/components/ui/skeleton';
-import { Badge } from '@/components/ui/badge';
+import { Skeleton } from '../../components/ui/skeleton';
+import { Badge } from '../../components/ui/badge';
 
 export function ChairPerson() {
   const {

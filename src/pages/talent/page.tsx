@@ -414,7 +414,7 @@ export default function TalentPage() {
                                     Connect your wallet to start trading FKR tokens
                                 </p>
                                 <p className="text-sm text-muted-foreground">
-                                    Use the "Connect Wallet" button at the top right to connect
+                                    Use the &quot;Connect Wallet&quot; button at the top right to connect
                                 </p>
                             </div>
                         )}

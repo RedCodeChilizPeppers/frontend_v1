@@ -1,8 +1,7 @@
-import { http, createConfig } from 'wagmi';
+
 import { hardhat } from 'wagmi/chains';
-import { getDefaultConfig } from 'connectkit';
-import { metaMask, coinbaseWallet, injected, safe } from 'wagmi/connectors';
-import { defineChain } from 'viem';
+
+import { getDefaultConfig } from '@rainbow-me/rainbowkit';
 
 const {
   ALCHEMY_ENDPOINT_URL_POLYGON_ZKEVM_MAINNET = '',
@@ -12,7 +11,7 @@ const {
 } = process.env;
 
 // Define Chiliz Spicy Testnet
-const chilizSpicy = defineChain({
+const chilizSpicy = {
   id: 88882,
   name: 'Chiliz Spicy Testnet',
   nativeCurrency: {
@@ -32,31 +31,33 @@ const chilizSpicy = defineChain({
     },
   },
   testnet: true,
-});
+};
 
-export const config = createConfig(
-  getDefaultConfig({  
-    appDescription: 'Chiliz Got Talent',
+export const config = 
+getDefaultConfig({
+    // createConfig(
+    // appDescription: 'Chiliz Got Talent',
     // appIcon: "",
     appName: 'Chiliz Got Talent',
     // appUrl: "",
     chains: [hardhat, chilizSpicy],
-    connectors: [
-      metaMask({
-        dappMetadata: {
-          name: 'Chiliz Got Talent',
-        },
-      }),
-      coinbaseWallet(),
-      injected(),
-      safe(),
-    ],
-    pollingInterval: 3000, // Chiliz block time
-    ssr: true,
-    transports: {
-      [hardhat.id]: http(),
-      [chilizSpicy.id]: http(),
-    },
-    walletConnectProjectId: WALLET_CONNECT_PROJECT_ID,
-  }),
-);
+    // connectors: [
+    //   metaMask({
+    //     dappMetadata: {
+    //       name: 'Chiliz Got Talent',
+    //     },
+    //   }),
+    //   coinbaseWallet(),
+    //   injected({
+    //     target: 'metamask',
+    //   }),
+    //   safe(),
+    // ],
+    // pollingInterval: 3000, // Chiliz block time
+    // ssr: true,
+    // transports: {
+    //   [hardhat.id]: http(),
+    //   [chilizSpicy.id]: http(),
+    // },
+    projectId: '90ad2325be56cb097121a9f3481bea34',
+  });

@@ -3,26 +3,23 @@
 import Link from 'next/link';
 import {
     DatabaseZap,
-    Globe,
     Landmark,
     LayoutDashboard,
     LucideProps,
     Menu,
-    ScrollText,
-    Users,
-    Vote,
 } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { ThemeToggle } from '@/components/ui/theme-toggle';
+import { Badge } from '../../components/ui/badge';
+import { Button } from '../../components/ui/button';
+import { Sheet, SheetContent, SheetTrigger } from '../../components/ui/sheet';
+import { ThemeToggle } from '../../components/ui/theme-toggle';
 import { usePathname } from 'next/navigation';
-import { ConnectKitButton } from 'connectkit';
+// import { ConnectKitButton } from 'connectkit';
 import { useContext } from 'react';
-import { DataContext } from '@/contexts/data-provider';
-import { Skeleton } from '@/components/ui/skeleton';
+import { DataContext } from '../../contexts/data-provider';
+import { Skeleton } from '../../components/ui/skeleton';
 import  cgt_white_goat  from '../../../public/cgt_white_goat.svg';
 import Image from 'next/image';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 type PageType = {
     count: number | undefined | null;
     icon: React.ForwardRefExoticComponent<Omit<LucideProps, 'ref'>>;
@@ -30,10 +27,10 @@ type PageType = {
     url: string;
 };
 const Logo = () => (
-    <a href="/" className="flex items-center gap-2 text-xl font-bold">
+    <Link href="/" className="flex items-center gap-2 text-xl font-bold">
         {/* Remplacez ce SVG par votre logo */}
         <Image width={100} height={50} src={cgt_white_goat} alt=""/>
-    </a>
+    </Link>
 );
 const Header = (props: { pages: PageType[], pathname: string }) => {
     return (
@@ -101,23 +98,7 @@ const Header = (props: { pages: PageType[], pathname: string }) => {
                         <ThemeToggle />
                     </div>
                     <div className="dark:navbar-pink">
-                        <ConnectKitButton showAvatar={true} showBalance={true} customTheme={{
-    '--ck-connectbutton-border-radius': '6px',
-    '--ck-connectbutton-background': 'rgb(var(--button-pink))',
-    '--ck-connectbutton-color': 'white',
-    '--ck-connectbutton-hover-background': 'rgb(var(--button-pink-hover))',
-    '--ck-connectbutton-active-background': 'rgb(var(--button-pink-hover))',
-    '--ck-connectbutton-balance-background': 'hsl(var(--muted))',
-    '--ck-connectbutton-balance-color': 'hsl(var(--accent-foreground))',
-    '--ck-connectbutton-balance-hover-background': 'hsl(var(--muted))',
-    '--ck-connectbutton-balance-active-background': 'hsl(var(--background))',
-    '--ck-connectbutton-box-shadow': '0 0 0 1px rgb(var(--button-pink-border))',
-    '--ck-connectbutton-balance-box-shadow': '0 0 0 1px hsl(var(--input))',
-    '--ck-connectbutton-hover-box-shadow': '0 0 0 1px rgb(var(--button-pink-border))',
-    '--ck-connectbutton-balance-hover-box-shadow': '0 0 0 1px hsl(var(--input))',
-    '--ck-connectbutton-active-box-shadow': '0 0 0 1px rgb(var(--button-pink-border))',
-    '--ck-connectbutton-balance-active-box-shadow': '0 0 0 1px hsl(var(--input))',
-  }}/>
+                        <ConnectButton />
                     </div>
                 </header>
 
@@ -125,9 +106,9 @@ const Header = (props: { pages: PageType[], pathname: string }) => {
 };
 export function MainNavigation({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
-    const {
-        data: { eventLogsCount, proposalsCount, votesCount },
-    } = useContext(DataContext);
+    // const {
+    //     data: { eventLogsCount, proposalsCount, votesCount },
+    // } = useContext(DataContext);
 
     const pages: PageType[] = [
         {

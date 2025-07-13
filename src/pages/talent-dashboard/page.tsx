@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { DollarSign, Heart, ShoppingBag, User } from 'lucide-react';
 import MerchTab from './merch-tab';
-import './dashboard.css';
+// import './dashboard.css';
 import FinanceTab from './finance-tab';
 import FanClubTab from './fan-club-tab';
 

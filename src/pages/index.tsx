@@ -1,8 +1,10 @@
-'use client';
-
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+import type { NextPage } from 'next';
+import Head from 'next/head';
+// import styles from '../styles/Home.module.css';
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 
-import './landing.css'; 
 
 
 // --- Composant de la carte 3D ---
@@ -37,7 +39,7 @@ const FloatingCard = () => {
                 
                 {/* Image slideshow */}
                 {images.map((src, index) => (
-                    <img 
+                    <Image
                         key={src}
                         src={src} 
                         alt={`Talent ${index + 1}`} 
@@ -57,10 +59,7 @@ const FloatingCard = () => {
         </div>
     );
 };
-
-
-// --- Main homepage component ---
-export default function HomePage() {
+const Home: NextPage = () => {
   return (
     <>
       <main className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-background text-foreground">
@@ -89,4 +88,6 @@ export default function HomePage() {
       </main>
     </>
   );
-}
+};
+
+export default Home;
